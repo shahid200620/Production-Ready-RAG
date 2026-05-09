@@ -1,0 +1,10 @@
+services:
+  rag-app:
+    build: .
+    container_name: production-ready-rag
+    env_file:
+      - .env
+    volumes:
+      - ./vector_store:/app/vector_store
+      - ./data:/app/data
+    command: python -m app.main "What are the two phases of a RAG pipeline?"

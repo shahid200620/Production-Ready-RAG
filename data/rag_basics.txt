@@ -1,0 +1,29 @@
+Retrieval-Augmented Generation (RAG) is an architecture that combines information retrieval with large language models.
+
+A RAG pipeline has two major phases: ingestion and query.
+
+During ingestion, documents are loaded, cleaned, split into chunks, converted into embeddings, and stored in a vector database.
+
+During the query phase, a user's question is embedded using the same embedding model. The system performs a similarity search to retrieve the most relevant chunks.
+
+The retrieved chunks are inserted into a prompt along with the user question. A language model generates an answer using only the provided context.
+
+RAG reduces hallucinations because the model is instructed to answer based solely on retrieved documents.
+
+RAG enables up-to-date knowledge because new documents can be added to the vector database without retraining the model.
+
+Chroma is a vector database commonly used for local RAG applications.
+
+Embeddings are numerical vectors that represent the semantic meaning of text.
+
+Cosine similarity is a mathematical technique used to measure how similar two embeddings are.
+
+Chunk overlap helps preserve context when text is split into smaller pieces.
+
+A typical chunk size ranges from 300 to 500 tokens.
+
+The top-K retrieval strategy returns the K most relevant chunks, often between 3 and 5.
+
+If the answer is not present in the retrieved context, the language model should respond with "I don't know."
+
+Metadata such as the source document name and chunk index should be stored with each chunk to enable citations.
